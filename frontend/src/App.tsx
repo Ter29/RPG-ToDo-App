@@ -13,8 +13,8 @@ function App() {
   }
 
   async function handleAdd(task: Omit<Task, 'id'>) {
-    await createTask(task);
-    loadTasks();
+    const newTask = await createTask(task);
+    setTasks(prev => [...prev, newTask]);
   }
 
   useEffect(() => {

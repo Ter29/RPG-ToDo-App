@@ -6,6 +6,7 @@ export function AddTask({ onAdd }: any) {
 
   const handleSubmit = () => {
     onAdd({ title, xp, completed: false });
+    if (!title.trim()) return;
     setTitle('');
     setXp(0);
   };
