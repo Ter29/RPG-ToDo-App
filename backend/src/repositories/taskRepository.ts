@@ -14,7 +14,19 @@ async function createTask(task: Task) {
   return task;
 }
 
+async function toggleTaskCompletion(id: string) {
+  const task = tasks.find((currentTask) => currentTask.id === id);
+
+  if (!task) {
+    return null;
+  }
+
+  task.completed = !task.completed;
+  return task;
+}
+
 export const taskRepository = {
   getAllTasks,
   createTask,
+  toggleTaskCompletion,
 };

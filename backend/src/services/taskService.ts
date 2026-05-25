@@ -13,3 +13,7 @@ export async function createTask(task: Task) {
 
   return await taskRepository.createTask(newTask);
 }
+
+export async function updateTask(id: string) {
+  return await taskRepository.toggleTaskCompletion(id);
+}

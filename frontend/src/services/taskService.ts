@@ -16,3 +16,15 @@ export async function createTask(task: Omit<Task, 'id'>) {
 
   return res.json();
 }
+
+export async function updateTask(id: string): Promise<Task> {
+  const res = await fetch(`/api/tasks/${id}`, {
+    method: 'PATCH'
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to update task');
+  }
+
+  return res.json();
+}

@@ -1,0 +1,118 @@
+### REST Client for RPG-ToDo-App API Testing
+### Base URL: http://localhost:3000
+### Requirements: Start the backend server before running these requests
+
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### ==================== HEALTH CHECK ====================
+
+### Check API Health
+GET {{baseUrl}}/api/health
+
+
+### ==================== CREATE OPERATIONS ====================
+
+### Create a new task
+POST {{baseUrl}}/api/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "Complete the quest",
+  "xp": 100,
+  "completed": false
+}
+
+###
+
+### Create another task
+POST {{baseUrl}}/api/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "Defeat the boss",
+  "xp": 500,
+  "completed": false
+}
+
+###
+
+### Create a completed task
+POST {{baseUrl}}/api/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "Collect treasures",
+  "xp": 250,
+  "completed": true
+}
+
+
+### ==================== READ OPERATIONS ====================
+
+### Get all tasks
+GET {{baseUrl}}/api/tasks
+
+
+### ==================== UPDATE OPERATIONS ====================
+
+### Update a task (mark as completed)
+### Replace {id} with an actual task ID from your database
+PATCH {{baseUrl}}/api/tasks/{id}
+Content-Type: {{contentType}}
+
+{
+  "completed": true
+}
+
+###
+
+### Update task title and XP
+PATCH {{baseUrl}}/api/tasks/{id}
+Content-Type: {{contentType}}
+
+{
+  "title": "Updated quest title",
+  "xp": 150
+}
+
+###
+
+### Update all task fields
+PATCH {{baseUrl}}/api/tasks/{id}
+Content-Type: {{contentType}}
+
+{
+  "title": "Epic adventure",
+  "xp": 1000,
+  "completed": true
+}
+
+
+### ==================== EXAMPLE WORKFLOW ====================
+
+### Step 1: Create a test task
+POST {{baseUrl}}/api/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "Test task for workflow",
+  "xp": 75,
+  "completed": false
+}
+
+###
+
+### Step 2: Get all tasks to verify creation
+GET {{baseUrl}}/api/tasks
+
+###
+
+### Step 3: Update the test task (replace {id} with the returned ID)
+PATCH {{baseUrl}}/api/tasks/{id}
+Content-Type: {{contentType}}
+
+{
+  "completed": true,
+  "xp": 100
+}
