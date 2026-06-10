@@ -29,7 +29,7 @@
 .quest-input-wrapper.is-expanded .quest-modal {
   padding: 6px 6px 22px;
   border-radius: 24px;
-  background-color: rgba(33, 33, 33, 0.96);
+  background-color: rgba(33, 33, 33, 1);
   box-shadow: 0 28px 80px rgba(106, 1, 204, 0.18);
 }
 
