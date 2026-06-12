@@ -1,0 +1,79 @@
+.intro-animation {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background: #050507;
+  color: #ffffff;
+}
+
+.intro-animation__laser {
+  position: absolute;
+  inset: 0;
+}
+
+.intro-animation__content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  pointer-events: none;
+  animation: introContent 4s ease both;
+}
+
+.intro-animation__content h1 {
+  margin: 8px 0 0;
+  font-size: clamp(44px, 8vw, 96px);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.intro-animation__eyebrow {
+  margin: 0;
+  color: #c9a8ff;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.intro-animation__skip {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(10, 10, 14, 0.55);
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+
+.intro-animation__skip:hover {
+  border-color: rgba(201, 168, 255, 0.65);
+  color: #ffffff;
+}
+
+@keyframes introContent {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  25%,
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-animation__content {
+    animation: none;
+  }
+}
