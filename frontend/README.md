@@ -71,3 +71,13 @@ export default defineConfig([
   },
 ])
 ```
+
+
+Progress ->
+skills
+stats
+charts
+XP history
+weak areas
+achievement progress
+weekly/monthly review
